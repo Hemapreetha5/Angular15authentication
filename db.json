@@ -56,6 +56,15 @@
       "gender": "male",
       "role": "user",
       "isactive": true
+    },
+    {
+      "id": [
+        "",
+        null
+      ]
+    },
+    {
+      "id": "hemapreetha"
     }
   ],
   "role": [
@@ -141,6 +150,21 @@
       "id": "5",
       "name": "robert",
       "Creditlimit": 1000
+    }
+  ],
+  "reguser": [
+    {
+      "id": "Gunaa",
+      "name": "Guna",
+      "password": "Guna",
+      "gender": "male",
+      "role": "admin",
+      "isactive": true,
+      "favVal": {
+        "red": true,
+        "green": true,
+        "blue": false
+      }
     }
   ]
 }

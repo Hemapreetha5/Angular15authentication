@@ -1,0 +1,59 @@
+<mat-card>
+    <mat-card-header>
+        <h1>Post Registration</h1>
+    </mat-card-header>
+    <mat-card-content>
+        <form [formGroup]="regForm" (ngSubmit)="proceedRegister()">
+            <mat-form-field appearance="outline">
+                <mat-label>Username* </mat-label>
+                <input matInput type="text" formControlName="id" placeholder="Enter Username" />
+            </mat-form-field>
+              <!-- Validation Message Row for Username -->
+            <div *ngIf="id?.invalid && (id?.dirty || id?.touched)" class="error">
+                <!-- Show error if the username is required -->
+                <small *ngIf="id?.errors?.['required']">Username is required</small>
+                
+                <!-- Show error if the username is too short -->
+                <small *ngIf="id?.errors?.['minlength']">Username must be at least 5 characters long</small>
+          
+                
+                <br />
+                <br />
+            </div>
+            <mat-form-field appearance="outline">
+                <mat-label>Name* </mat-label>
+                <input matInput type="text" formControlName="name" placeholder="Enter Name" />
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Password*</mat-label>
+                <input matInput type="password" formControlName="password" placeholder="Enter Password" />
+            </mat-form-field>
+            <mat-radio-group aria-label="Gender" formControlName="gender">
+                <mat-label>Gender</mat-label>
+                <mat-radio-button value="male">Male</mat-radio-button>
+                <mat-radio-button value="female">Female</mat-radio-button>
+            </mat-radio-group>
+            <br />
+            <mat-radio-group aria-label="Role" formControlName="role">
+                <mat-label>Role</mat-label>
+                <mat-radio-button value="admin">Admin</mat-radio-button>
+                <mat-radio-button value="user">User</mat-radio-button>
+                <mat-radio-button value="guest">Guest</mat-radio-button>
+            </mat-radio-group>
+            <br />
+            <div class="row">
+                <mat-checkbox formControlName="isactive" class="example-margin">Is Active</mat-checkbox>
+            </div>
+            <br />
+            <div class="row">
+                <section class="example-section" formGroupName="favVal">
+                    <mat-label>Favourite color</mat-label>
+                    <mat-checkbox formControlName="red">Red</mat-checkbox>
+                    <mat-checkbox formControlName="green">Green</mat-checkbox>
+                    <mat-checkbox formControlName="blue">Blue</mat-checkbox>
+                </section>
+            </div>
+            <button mat-raised-button>Save</button>
+        </form>
+    </mat-card-content>
+</mat-card>

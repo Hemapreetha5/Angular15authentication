@@ -1,0 +1,23 @@
+<mat-card>
+    <mat-card-header>
+        <h2>Get Data</h2>
+        <ul *ngIf="data.length > 0">
+            <li *ngFor="let items of data">
+                <div>{{items.id}}</div>
+                <div>{{items.name}}</div>
+                <div>{{items.role}}</div>
+                <div>{{items.gender}}</div>
+                <div>{{items.favVal | json}}</div>
+                Key value is : {{items.favVal | keyvalue | json}}
+                <!-- Iterate over items.favVal instead of data.favVal -->
+                <div *ngFor="let color of items.favVal | keyvalue">
+                    <!-- Check if the value is true before displaying -->
+                    <span *ngIf="color.value === true">{{ color.key }}</span>
+                </div>
+            </li>
+        </ul>
+        <div *ngIf="data.length === 0">
+            <li>Error</li>
+        </div>
+    </mat-card-header>
+</mat-card>

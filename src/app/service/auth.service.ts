@@ -38,4 +38,10 @@ export class AuthService {
   Getaccessbyrole(role:any,menu:any){
     return this.http.get('http://localhost:3000/roleaccess?role='+role+'&menu='+menu)
   }
+  RegUser(inputDataVal:any){
+    return this.http.post('http://localhost:3000/reguser', inputDataVal);
+  }
+  GetRegUser(){
+    return this.http.get('http://localhost:3000/reguser');
+  }
 }

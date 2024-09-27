@@ -14,7 +14,10 @@ import {HttpClientModule} from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { UpdatepopupComponent } from './updatepopup/updatepopup.component';
 import { CustomerComponent } from './customer/customer.component';
-
+import { RegComponent } from './practice/mycomponents/reg/reg.component';
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { PracticeComponent } from './practice/practice/practice.component';
+import { GetComponent } from './practice/mycomponents/get/get.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +26,10 @@ import { CustomerComponent } from './customer/customer.component';
     HomeComponent,
     UserComponent,
     UpdatepopupComponent,
-    CustomerComponent
+    CustomerComponent,
+    RegComponent,
+    PracticeComponent,
+    GetComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +37,7 @@ import { CustomerComponent } from './customer/customer.component';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MaterialModule,
+    MatFormFieldModule,
     HttpClientModule,
     ToastrModule.forRoot()
   ],

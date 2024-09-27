@@ -19,3 +19,6 @@ padding: 1%;
 a.text-primary{
     color:blue !important;
 }
+.error,.error span{
+    color:red;
+}
