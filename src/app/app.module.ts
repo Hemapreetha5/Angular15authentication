@@ -18,6 +18,7 @@ import { RegComponent } from './practice/mycomponents/reg/reg.component';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { PracticeComponent } from './practice/practice/practice.component';
 import { GetComponent } from './practice/mycomponents/get/get.component';
+import { InterceptorComponent } from './practice/mycomponents/interceptor/interceptor.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,8 @@ import { GetComponent } from './practice/mycomponents/get/get.component';
     CustomerComponent,
     RegComponent,
     PracticeComponent,
-    GetComponent
+    GetComponent,
+    InterceptorComponent
   ],
   imports: [
     BrowserModule,
