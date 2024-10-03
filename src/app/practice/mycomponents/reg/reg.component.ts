@@ -14,7 +14,7 @@ export class RegComponent {
   ){
 
   }
-  get id() {
+  get idErr() {
     return this.regForm.get('id');
   }
   regForm=this.builder.group({
