@@ -19,6 +19,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { PracticeComponent } from './practice/practice/practice.component';
 import { GetComponent } from './practice/mycomponents/get/get.component';
 import { InterceptorComponent } from './practice/mycomponents/interceptor/interceptor.component';
+import { UserUpdateComponent } from './practice/mycomponents/user-update/user-update.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,8 @@ import { InterceptorComponent } from './practice/mycomponents/interceptor/interc
     RegComponent,
     PracticeComponent,
     GetComponent,
-    InterceptorComponent
+    InterceptorComponent,
+    UserUpdateComponent
   ],
   imports: [
     BrowserModule,
