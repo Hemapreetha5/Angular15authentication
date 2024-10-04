@@ -18,7 +18,7 @@ const routes: Routes = [
  {component:CustomerComponent,path:'customer',canActivate:[AuthGuard]},
  {path:"practice-crud",component:PracticeComponent},
  {path:"practice-interceptor",component:InterceptorComponent},
- {path:"tabs",component:TabContentComponent}
+ {path:"api-tabs",component:TabContentComponent}
 ];
 
 @NgModule({
