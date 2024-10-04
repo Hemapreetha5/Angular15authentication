@@ -22,3 +22,14 @@ a.text-primary{
 .error,.error span{
     color:red;
 }
+
+.tab2.ng-star-inserted {
+    position: absolute;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    cursor: not-allowed;
+    width: 100%;
+    height: 50px;
+    background: red;
+}

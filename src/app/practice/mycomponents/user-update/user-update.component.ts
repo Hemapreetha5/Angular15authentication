@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-user-update',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./user-update.component.css']
 })
 export class UserUpdateComponent {
+  constructor(private sharedService: AuthService) {}
 
+  onButtonClick() {
+    this.sharedService.triggerLogFunction();
+  }
 }

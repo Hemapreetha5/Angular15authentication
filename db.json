@@ -163,5 +163,27 @@
         "blue": false
       }
     }
+  ],
+  "data": [
+    {
+      "id": 1,
+      "field": "Initial Data"
+    },
+    {
+      "id": 2,
+      "field": "Initial Data calling"
+    },
+    {
+      "id": 3,
+      "field": "Initial Data calling"
+    },
+    {
+      "id": 4,
+      "field": "Initial Data calling"
+    },
+    {
+      "id": 5,
+      "field": "Initial Data calling"
+    }
   ]
 }

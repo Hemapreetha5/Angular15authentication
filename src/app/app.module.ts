@@ -20,6 +20,12 @@ import { PracticeComponent } from './practice/practice/practice.component';
 import { GetComponent } from './practice/mycomponents/get/get.component';
 import { InterceptorComponent } from './practice/mycomponents/interceptor/interceptor.component';
 import { UserUpdateComponent } from './practice/mycomponents/user-update/user-update.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import { EditComponent } from './practice/mycomponents/edit/edit.component';
+import { ViewComponent } from './practice/mycomponents/view/view.component';
+import { TabContentComponent } from './practice/mycomponents/tab-content/tab-content.component';
+import { ObservableGetComponent } from './practice/mycomponents/observable-get/observable-get.component';
+import { ViewtwoComponent } from './practice/mycomponents/viewtwo/viewtwo.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +39,12 @@ import { UserUpdateComponent } from './practice/mycomponents/user-update/user-up
     PracticeComponent,
     GetComponent,
     InterceptorComponent,
-    UserUpdateComponent
+    UserUpdateComponent,
+    EditComponent,
+    ViewComponent,
+    TabContentComponent,
+    ObservableGetComponent,
+    ViewtwoComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +54,7 @@ import { UserUpdateComponent } from './practice/mycomponents/user-update/user-up
     MaterialModule,
     MatFormFieldModule,
     HttpClientModule,
+    MatTabsModule,
     ToastrModule.forRoot()
   ],
   providers: [],

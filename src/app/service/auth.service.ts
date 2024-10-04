@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
+import { Observable,Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -9,6 +9,20 @@ export class AuthService {
   constructor(private http:HttpClient) { 
 
   }
+
+
+  private logFunctionSubject = new Subject<void>();
+
+  // Observable for the log function trigger
+  logFunctionTriggered$ = this.logFunctionSubject.asObservable();
+
+  // Method to trigger the log function
+  triggerLogFunction() {
+    this.logFunctionSubject.next();
+  }
+
+
+  
   apiurl='http://localhost:3000/user';
 
   RegisterUser(inputdata:any){
@@ -44,4 +58,8 @@ export class AuthService {
   GetRegUser(){
     return this.http.get('http://localhost:3000/reguser');
   }
+  getPosts(): Observable<any> {
+    return this.http.get<any>('http://localhost:3000/data');
+  }
+  
 }

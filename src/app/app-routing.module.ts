@@ -8,6 +8,7 @@ import { RegisterComponent } from './register/register.component';
 import { UserComponent } from './user/user.component';
 import { PracticeComponent } from './practice/practice/practice.component';
 import { InterceptorComponent } from './practice/mycomponents/interceptor/interceptor.component';
+import { TabContentComponent } from './practice/mycomponents/tab-content/tab-content.component';
 
 const routes: Routes = [
  {component:LoginComponent,path:'login'},
@@ -16,7 +17,8 @@ const routes: Routes = [
  {component:UserComponent,path:'user',canActivate:[AuthGuard]},
  {component:CustomerComponent,path:'customer',canActivate:[AuthGuard]},
  {path:"practice-crud",component:PracticeComponent},
- {path:"practice-interceptor",component:InterceptorComponent}
+ {path:"practice-interceptor",component:InterceptorComponent},
+ {path:"tabs",component:TabContentComponent}
 ];
 
 @NgModule({
