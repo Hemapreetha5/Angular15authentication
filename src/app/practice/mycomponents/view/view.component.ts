@@ -1,37 +1,27 @@
 import { Component } from '@angular/core';
-import { Subscription, interval } from 'rxjs';
 import { AuthService } from '../../../service/auth.service';
-
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-view',
   templateUrl: './view.component.html',
   styleUrls: ['./view.component.css']
 })
 export class ViewComponent {
-  posts: any[] = []; // Array to hold the fetched posts
-  private subscription: Subscription | undefined; // Initialize to undefined
-
-  constructor(private myDataService: AuthService) {}
-
-  ngOnInit(): void {
-    this.fetchPosts(); // Fetch initial data from the server
-
-    // Create an observable that emits every 10 seconds
-    this.subscription = interval(1000).subscribe(() => {
-      this.fetchPosts(); // Fetch the latest posts every 10 seconds
+  constructor(private sharedService: AuthService,
+    private http: HttpClient
+  ) {}
+data :any;
+  ngOnInit() {
+    this.getPosts();
+    this.sharedService.logFunctionTriggered$.subscribe(() => {
+      this.getPosts();
     });
   }
 
-  // Method to fetch posts from the service
-  fetchPosts(): void {
-    this.myDataService.getPosts().subscribe(data => {
-      this.posts = data; // Update the posts array with the fetched data
-    });
-  }
-
-  ngOnDestroy(){
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-    }
+  getPosts() {
+    console.log('Log function in Component A has been called!');
+    this.sharedService.getPosts().subscribe(res => {
+      this.data = res;
+    })
   }
 }

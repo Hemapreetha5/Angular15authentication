@@ -1,4 +1,2 @@
-<div *ngFor="let post of posts">
-    <h3>{{ post.id }}</h3>
-    <p>{{ post.field }}</p>
-  </div>
+<p>View data</p>
+<p *ngFor="let item of data">{{item | json}}</p>
