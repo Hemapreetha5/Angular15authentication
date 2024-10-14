@@ -1,0 +1,32 @@
+<p>client-name works!</p>
+<form>
+        <!-- Client Names Dropdown -->
+        <mat-form-field appearance="fill">
+            <mat-label>Client Names</mat-label>
+            <mat-select [(value)]="selectedName" (selectionChange)="onClientName($event.value)">
+              <mat-option *ngFor="let clientName of clientNamesVal" [value]="clientName.clientName">
+                {{ clientName.clientName }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+    <!-- Client Names Dropdown -->
+    <mat-form-field appearance="fill">
+      <mat-label>Client Names</mat-label>
+      <mat-select [(value)]="selectedClientName" (selectionChange)="onClientNameChange($event.value)">
+        <mat-option *ngFor="let clientName of clientNamesVal" [value]="clientName.clientName">
+          {{ clientName.clientName }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+   <!-- Clients Dropdown -->
+   <mat-form-field appearance="fill">
+    <mat-label>Clients</mat-label>
+    <mat-select [(value)]="selectedClient">
+      <mat-option *ngFor="let client of filteredClients" [value]="client.groupName">
+        {{ client.groupName }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button (click)="saveClientName()">Save</button>
+</form>

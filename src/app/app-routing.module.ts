@@ -9,6 +9,8 @@ import { UserComponent } from './user/user.component';
 import { PracticeComponent } from './practice/practice/practice.component';
 import { InterceptorComponent } from './practice/mycomponents/interceptor/interceptor.component';
 import { TabContentComponent } from './practice/mycomponents/tab-content/tab-content.component';
+import { ClientNameComponent } from './practice/mycomponents/client-name/client-name.component';
+import { LinksLocalstorageComponent } from './practice/mycomponents/links-localstorage/links-localstorage.component';
 
 const routes: Routes = [
  {component:LoginComponent,path:'login'},
@@ -18,7 +20,9 @@ const routes: Routes = [
  {component:CustomerComponent,path:'customer',canActivate:[AuthGuard]},
  {path:"practice-crud",component:PracticeComponent},
  {path:"practice-interceptor",component:InterceptorComponent},
- {path:"api-tabs",component:TabContentComponent}
+ {path:"api-tabs",component:TabContentComponent},
+ {path:"client",component:ClientNameComponent},
+ {path:"link-localstorage",component:LinksLocalstorageComponent}
 ];
 
 @NgModule({

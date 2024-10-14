@@ -24,6 +24,8 @@ import { ViewComponent } from './practice/mycomponents/view/view.component';
 import { TabContentComponent } from './practice/mycomponents/tab-content/tab-content.component';
 import { ObservableGetComponent } from './practice/mycomponents/observable-get/observable-get.component';
 import { ViewtwoComponent } from './practice/mycomponents/viewtwo/viewtwo.component';
+import { ClientNameComponent } from './practice/mycomponents/client-name/client-name.component';
+import { LinksLocalstorageComponent } from './practice/mycomponents/links-localstorage/links-localstorage.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +42,9 @@ import { ViewtwoComponent } from './practice/mycomponents/viewtwo/viewtwo.compon
     ViewComponent,
     TabContentComponent,
     ObservableGetComponent,
-    ViewtwoComponent
+    ViewtwoComponent,
+    ClientNameComponent,
+    LinksLocalstorageComponent
   ],
   imports: [
     BrowserModule,
