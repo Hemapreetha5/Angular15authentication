@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router'; // Import Router for navigation
 
@@ -7,11 +7,11 @@ import { Router } from '@angular/router'; // Import Router for navigation
   templateUrl: './otp.component.html',
   styleUrls: ['./otp.component.css']
 })
-export class OtpComponent implements OnInit {
+export class OtpComponent implements OnInit, OnDestroy {
   otpForm!: FormGroup;  // Use '!' to tell TypeScript this will be initialized in ngOnInit
   errorMessage: string = '';
-  countdown: number = 299; // 4 minutes 59 seconds
-  countdownDisplay: string = '04:59';
+  countdown: number = 300; // Set to 300 seconds (5 minutes)
+  countdownDisplay: string = '05:00'; // Initial display for 5 minutes
   timer: any;
 
   constructor(private fb: FormBuilder, private router: Router) {}
@@ -24,19 +24,25 @@ export class OtpComponent implements OnInit {
     this.startCountdown(); // Start countdown timer
   }
 
+  // Start countdown timer
   startCountdown() {
     this.timer = setInterval(() => {
       if (this.countdown > 0) {
-        this.countdown--;
+        this.countdown--; // Decrease countdown by 1 second
+
+        // Calculate minutes and seconds
         const minutes = Math.floor(this.countdown / 60);
         const seconds = this.countdown % 60;
+
+        // Update countdownDisplay in "MM:SS" format
         this.countdownDisplay = `${this.pad(minutes)}:${this.pad(seconds)}`;
       } else {
-        clearInterval(this.timer);
+        clearInterval(this.timer); // Clear the timer once the countdown reaches 0
       }
-    }, 1000);
+    }, 1000); // Update every 1 second
   }
 
+  // Helper function to add leading zero for minutes and seconds
   pad(num: number): string {
     return num < 10 ? '0' + num : num.toString();
   }
@@ -78,7 +84,7 @@ export class OtpComponent implements OnInit {
   onResendCode() {
     console.log('Resend OTP clicked');
     // Simulate resend OTP logic
-    this.countdown = 299; // Reset timer
+    this.countdown = 300; // Reset timer to 5 minutes
     this.startCountdown(); // Restart countdown
     console.log('New OTP sent to the registered email address');
   }
