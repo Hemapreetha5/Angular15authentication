@@ -24,7 +24,7 @@ export class AuthService {
 
   
   apiurl='http://localhost:3000/user';
-
+  private otpUrl = 'http://localhost:3000/otp'; // URL to web api
   RegisterUser(inputdata:any){
     return this.http.post(this.apiurl,inputdata)
   }
@@ -61,5 +61,7 @@ export class AuthService {
   getPosts(): Observable<any> {
     return this.http.get<any>('http://localhost:3000/data');
   }
-  
+  getOtp(): Observable<any> {
+    return this.http.get<any>(this.otpUrl);
+  }
 }
