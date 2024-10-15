@@ -1,8 +1,8 @@
+// ... other imports
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/service/auth.service';// Import the service
-
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-otp',
@@ -12,10 +12,11 @@ import { AuthService } from 'src/app/service/auth.service';// Import the service
 export class OtpComponent implements OnInit, OnDestroy {
   otpForm!: FormGroup;
   errorMessage: string = '';
-  countdown: number = 300;
-  countdownDisplay: string = '05:00';
+  countdown: number = 60; // Set countdown to 60 seconds
+  countdownDisplay: string = '01:00';
   timer: any;
   currentOtp: string = '';
+  isResendDisabled: boolean = true; // Flag to disable the resend button
 
   constructor(private fb: FormBuilder, private router: Router, private otpService: AuthService) {}
 
@@ -32,8 +33,8 @@ export class OtpComponent implements OnInit, OnDestroy {
     this.otpService.getOtp().subscribe(
       response => {
         if (response && response.length > 0) {
-          this.currentOtp = response[0].code; // Get the first OTP from the array
-          console.log('Fetched OTP:', this.currentOtp); // Debug log
+          this.currentOtp = response[0].code;
+          console.log('Fetched OTP:', this.currentOtp);
         } else {
           console.error('No OTP found in response');
         }
@@ -53,6 +54,7 @@ export class OtpComponent implements OnInit, OnDestroy {
         this.countdownDisplay = `${this.pad(minutes)}:${this.pad(seconds)}`;
       } else {
         clearInterval(this.timer);
+        this.isResendDisabled = false; // Enable the resend button when countdown reaches 0
       }
     }, 1000);
   }
@@ -68,11 +70,11 @@ export class OtpComponent implements OnInit, OnDestroy {
   onLandingClick() {
     if (this.otpForm.valid) {
       const enteredOtp = this.otpForm.get('otpCode')?.value;
-      console.log('Entered OTP:', enteredOtp); // Debug log
-      console.log('Current OTP:', this.currentOtp); // Debug log
+      console.log('Entered OTP:', enteredOtp);
+      console.log('Current OTP:', this.currentOtp);
       
       if (enteredOtp === this.currentOtp) {
-        this.router.navigate(['/']);
+        this.router.navigate(['/pin-reset-successful']);
       } else {
         this.errorMessage = 'The verification code you entered is incorrect or has expired. Please double-check and try again.';
       }
@@ -85,6 +87,7 @@ export class OtpComponent implements OnInit, OnDestroy {
     console.log('Resend OTP clicked');
     this.fetchOtp(); // Fetch new OTP
     this.countdown = 60; // Reset countdown
+    this.isResendDisabled = true; // Disable resend button
     this.startCountdown(); // Restart countdown
   }
 

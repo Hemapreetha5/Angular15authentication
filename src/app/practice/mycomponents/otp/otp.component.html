@@ -17,7 +17,7 @@
     </div>
     <div class="row text-start">
       <div class="col otp-reset">
-        <button type="button" class="button-tranparent" (click)="onResendCode()">Resend Code</button>
+        <button type="button" class="button-transparent" (click)="onResendCode()" [disabled]="isResendDisabled">Resend Code</button>
       </div>
       <div class="col otp-reset-time">
         <span>{{ countdownDisplay }}</span>
