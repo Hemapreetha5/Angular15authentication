@@ -11,6 +11,7 @@ import { InterceptorComponent } from './practice/mycomponents/interceptor/interc
 import { TabContentComponent } from './practice/mycomponents/tab-content/tab-content.component';
 import { ClientNameComponent } from './practice/mycomponents/client-name/client-name.component';
 import { LinksLocalstorageComponent } from './practice/mycomponents/links-localstorage/links-localstorage.component';
+import { OtpComponent } from './practice/mycomponents/otp/otp.component';
 
 const routes: Routes = [
  {component:LoginComponent,path:'login'},
@@ -22,7 +23,8 @@ const routes: Routes = [
  {path:"practice-interceptor",component:InterceptorComponent},
  {path:"api-tabs",component:TabContentComponent},
  {path:"client",component:ClientNameComponent},
- {path:"link-localstorage",component:LinksLocalstorageComponent}
+ {path:"link-localstorage",component:LinksLocalstorageComponent},
+ {path:"otp",component:OtpComponent}
 ];
 
 @NgModule({

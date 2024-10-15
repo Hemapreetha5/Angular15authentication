@@ -26,6 +26,7 @@ import { ObservableGetComponent } from './practice/mycomponents/observable-get/o
 import { ViewtwoComponent } from './practice/mycomponents/viewtwo/viewtwo.component';
 import { ClientNameComponent } from './practice/mycomponents/client-name/client-name.component';
 import { LinksLocalstorageComponent } from './practice/mycomponents/links-localstorage/links-localstorage.component';
+import { OtpComponent } from './practice/mycomponents/otp/otp.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +45,8 @@ import { LinksLocalstorageComponent } from './practice/mycomponents/links-locals
     ObservableGetComponent,
     ViewtwoComponent,
     ClientNameComponent,
-    LinksLocalstorageComponent
+    LinksLocalstorageComponent,
+    OtpComponent
   ],
   imports: [
     BrowserModule,

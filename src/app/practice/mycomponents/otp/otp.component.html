@@ -1,0 +1,36 @@
+<form [formGroup]="otpForm">
+    <div class="row text-start">
+      <div class="col form-input">
+        <mat-form-field class="inpStuNo" appearance="outline">
+          <input matInput placeholder="Verification Code" type="text" id="otpCode" formControlName="otpCode">
+        </mat-form-field>
+        <div *ngIf="otpForm.get('otpCode')?.hasError('required') && otpForm.get('otpCode')?.touched">
+          <small class="text-danger">Verification code is required.</small>
+        </div>
+        <div *ngIf="otpForm.get('otpCode')?.hasError('maxlength') && otpForm.get('otpCode')?.touched">
+          <small class="text-danger">Verification code cannot be longer than 6 digits.</small>
+        </div>
+        <div *ngIf="errorMessage">
+          <small class="text-danger">{{ errorMessage }}</small>
+        </div>
+      </div>
+    </div>
+    <div class="row text-start">
+      <div class="col otp-reset">
+        <button type="button" class="button-tranparent" (click)="onResendCode()">Resend Code</button>
+      </div>
+      <div class="col otp-reset-time">
+        <span>{{ countdownDisplay }}</span>
+      </div>
+    </div>
+    <hr />
+    <div class="row button-row">
+      <div class="col">
+        <button type="button" class="btnSubmit backButton" (click)="onLoginClick()">Back</button>
+      </div>
+      <div class="col">
+        <button type="button" class="border-0 btnSubmit" (click)="onLandingClick()">Submit</button>
+      </div>
+    </div>
+  </form>
+  

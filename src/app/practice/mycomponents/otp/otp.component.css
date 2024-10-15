@@ -1,0 +1,18 @@
+/* Basic styles for otp.component.scss */
+.inpStuNo {
+    width: 100%;
+  }
+  
+  .btnSubmit {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+  }
+  
+  .backButton {
+    background-color: #6c757d;
+  }
+  
+  .text-danger {
+    color: red;
+  }
