@@ -1,34 +1,48 @@
 <form [formGroup]="otpForm" (ngSubmit)="onLandingClick()">
     <div class="row text-start">
       <div class="col form-input">
+        <!-- Material input field for the verification code -->
         <mat-form-field class="inpStuNo" appearance="outline">
           <input matInput placeholder="Verification Code" type="text" id="otpCode" formControlName="otpCode">
         </mat-form-field>
+  
+        <!-- Error message for required validation -->
         <div *ngIf="otpForm.get('otpCode')?.hasError('required') && otpForm.get('otpCode')?.touched">
           <small class="text-danger">Verification code is required.</small>
         </div>
+  
+        <!-- Error message for maxlength validation -->
         <div *ngIf="otpForm.get('otpCode')?.hasError('maxlength') && otpForm.get('otpCode')?.touched">
           <small class="text-danger">Verification code cannot be longer than 6 digits.</small>
         </div>
+  
+        <!-- Display general error messages -->
         <div *ngIf="errorMessage">
           <small class="text-danger">{{ errorMessage }}</small>
         </div>
       </div>
     </div>
+  
     <div class="row text-start">
       <div class="col otp-reset">
+        <!-- Button to resend the verification code -->
         <button type="button" class="button-transparent" (click)="onResendCode()" [disabled]="isResendDisabled">Resend Code</button>
       </div>
       <div class="col otp-reset-time">
+        <!-- Countdown timer display -->
         <span>{{ countdownDisplay }}</span>
       </div>
     </div>
+  
     <hr />
+  
     <div class="row button-row">
       <div class="col">
+        <!-- Button to go back to the previous step -->
         <button type="button" class="btnSubmit backButton" (click)="onLoginClick()">Back</button>
       </div>
       <div class="col">
+        <!-- Submit button to verify the OTP -->
         <button type="submit" class="border-0 btnSubmit">Submit</button>
       </div>
     </div>
