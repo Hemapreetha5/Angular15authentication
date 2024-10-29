@@ -27,6 +27,8 @@ import { ViewtwoComponent } from './practice/mycomponents/viewtwo/viewtwo.compon
 import { ClientNameComponent } from './practice/mycomponents/client-name/client-name.component';
 import { LinksLocalstorageComponent } from './practice/mycomponents/links-localstorage/links-localstorage.component';
 import { OtpComponent } from './practice/mycomponents/otp/otp.component';
+import { ForgotPinComponent } from './practice/mycomponents/forgot-pin/forgot-pin.component';
+import { MyOtpComponent } from './practice/mycomponents/my-otp/my-otp.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +48,9 @@ import { OtpComponent } from './practice/mycomponents/otp/otp.component';
     ViewtwoComponent,
     ClientNameComponent,
     LinksLocalstorageComponent,
-    OtpComponent
+    OtpComponent,
+    ForgotPinComponent,
+    MyOtpComponent
   ],
   imports: [
     BrowserModule,

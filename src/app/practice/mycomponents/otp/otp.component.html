@@ -1,50 +1,84 @@
-<form [formGroup]="otpForm" (ngSubmit)="onLandingClick()">
-    <div class="row text-start">
-      <div class="col form-input">
-        <!-- Material input field for the verification code -->
-        <mat-form-field class="inpStuNo" appearance="outline">
-          <input matInput placeholder="Verification Code" type="text" id="otpCode" formControlName="otpCode">
-        </mat-form-field>
-  
-        <!-- Error message for required validation -->
-        <div *ngIf="otpForm.get('otpCode')?.hasError('required') && otpForm.get('otpCode')?.touched">
-          <small class="text-danger">Verification code is required.</small>
-        </div>
-  
-        <!-- Error message for maxlength validation -->
-        <div *ngIf="otpForm.get('otpCode')?.hasError('maxlength') && otpForm.get('otpCode')?.touched">
-          <small class="text-danger">Verification code cannot be longer than 6 digits.</small>
-        </div>
-  
-        <!-- Display general error messages -->
-        <div *ngIf="errorMessage">
-          <small class="text-danger">{{ errorMessage }}</small>
+<div class="auth-section ">
+<div class="auth-container otp-container">
+  <div class="row no-margin-row">
+    <div class="row otp-main-content">
+      <div class="col-12 col-md-3 otp-content-logo">
+        <img src="otp.svg" alt="appLogo" />
+      </div>
+      <div class="col-12 col-md-9 otp-right-text">
+        <div class="col">
+          <h3 class="otp-security">Security Verification Code</h3>
+          <p class="otp-sent">
+            An email with a verification code was just sent
+            to <span>jes.....&#64;gmail.com</span>. Kindly enter the code below.
+          </p>
         </div>
       </div>
     </div>
-  
-    <div class="row text-start">
-      <div class="col otp-reset">
-        <!-- Button to resend the verification code -->
-        <button type="button" class="button-transparent" (click)="onResendCode()" [disabled]="isResendDisabled">Resend Code</button>
-      </div>
-      <div class="col otp-reset-time">
-        <!-- Countdown timer display -->
-        <span>{{ countdownDisplay }}</span>
-      </div>
-    </div>
-  
     <hr />
-  
-    <div class="row button-row">
-      <div class="col">
-        <!-- Button to go back to the previous step -->
-        <button type="button" class="btnSubmit backButton" (click)="onLoginClick()">Back</button>
-      </div>
-      <div class="col">
-        <!-- Submit button to verify the OTP -->
-        <button type="submit" class="border-0 btnSubmit">Submit</button>
-      </div>
+    <div class="row otp-sub-content">
+      <form [formGroup]="otpForm" (ngSubmit)="onSubmit()">
+        <div class="row text-start">
+          <div class="col form-input">
+            <mat-form-field class="inpStuNo" appearance="outline" class="multiline-error">
+              <input
+                matInput
+                matInput
+                placeholder="Verification Code"
+                type="text"
+                id="otpCode"
+                formControlName="otpCode"
+                required
+              />
+              <mat-error
+                *ngIf="otpCode?.invalid && (otpCode?.dirty || otpCode?.touched)"
+              >
+                <span
+                  *ngIf="otpCode?.errors?.['required']"
+                  class="text-danger error-text"
+                  >Otp is required.</span
+                >
+                <span
+                  *ngIf="otpCode?.errors?.['maxlength']"
+                  class="text-danger error-text"
+                  >Otp cannot be more than 4 digits.</span
+                >
+                <span
+                  *ngIf="otpCode?.errors?.['pattern']"
+                  class="text-danger error-text"
+                  >The verification code has numbers only, Please double-check and try again.</span
+                >
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row text-start">
+          <div class="col otp-reset">
+            <button class="button-tranparent">Resend Code</button>
+          </div>
+          <div class="col otp-reset-time">
+            <span>04:59</span>
+          </div>
+        </div>
+        <hr />
+        <div class="row button-row">
+          <div class="col">
+            <button class="btnSubmit backButton" (click)="onLoginClick()">
+              Back
+            </button>
+          </div>
+          <div class="col">
+            <button
+              class="border-0 btnSubmit"
+              type="submit"
+              [disabled]="otpForm.invalid"
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+      </form>
     </div>
-  </form>
-  
+  </div>
+</div>
+</div>

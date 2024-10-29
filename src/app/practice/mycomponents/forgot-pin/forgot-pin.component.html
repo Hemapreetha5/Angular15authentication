@@ -1,0 +1,73 @@
+<div class="auth-section ">
+<div class="auth-container otp-container forgotpin-container">
+    <div class="row no-margin-row">
+      <div class="row otp-main-content">
+        <div class="col-12 col-md-3 otp-content-logo">
+          <img src="forgot-pin.svg" alt="appLogo" />
+        </div>
+        <div class="col-12 col-md-9 otp-right-text">
+          <div class="col">
+            <h3 class="otp-security">Forgot Pin</h3>
+            <p class="otp-sent">Enter your Student Number to reset your pin.</p>
+          </div>
+        </div>
+      </div>
+      <hr class="mt-0" />
+      <div class="row otp-sub-content forgotpin-sub-content">
+        <form [formGroup]="forgotPinForm" (ngSubmit)="onSubmit()">
+          <div class="row text-start">
+            <div class="col form-input">
+              <mat-form-field class="inpStuNo" appearance="outline">
+                <input
+                  matInput
+                  matInput
+                  placeholder="Student number"
+                  type="text"
+                  id="studentNumber"
+                  formControlName="studentNumber"
+                  required
+                />
+                <mat-error
+                  *ngIf="
+                    studentNumber?.invalid &&
+                    (studentNumber?.dirty || studentNumber?.touched)
+                  "
+                >
+                  <span
+                    *ngIf="studentNumber?.errors?.['required']"
+                    class="text-danger error-text"
+                  >
+                    Student number is required.
+                  </span>
+                  <span
+                    *ngIf="studentNumber?.errors?.['maxlength']"
+                    class="text-danger error-text"
+                  >
+                    Student number cannot be more than 9 digits.
+                  </span>
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <hr class="mt-0" />
+          <div class="row button-row">
+            <div class="col" width="20%">
+              <button class="btnSubmit backButton" (click)="onLoginClick()">
+                Back
+              </button>
+            </div>
+            <div class="col">
+              <button
+                class="border-0 btnSubmit"
+                [disabled]="forgotPinForm.invalid"
+                type="submit"
+              >
+                Reset pin
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>

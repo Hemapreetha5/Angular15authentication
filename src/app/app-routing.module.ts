@@ -12,6 +12,7 @@ import { TabContentComponent } from './practice/mycomponents/tab-content/tab-con
 import { ClientNameComponent } from './practice/mycomponents/client-name/client-name.component';
 import { LinksLocalstorageComponent } from './practice/mycomponents/links-localstorage/links-localstorage.component';
 import { OtpComponent } from './practice/mycomponents/otp/otp.component';
+import { ForgotPinComponent } from './practice/mycomponents/forgot-pin/forgot-pin.component';
 
 const routes: Routes = [
  {component:LoginComponent,path:'login'},
@@ -24,7 +25,8 @@ const routes: Routes = [
  {path:"api-tabs",component:TabContentComponent},
  {path:"client",component:ClientNameComponent},
  {path:"link-localstorage",component:LinksLocalstorageComponent},
- {path:"otp",component:OtpComponent}
+ {path:"otp",component:OtpComponent},
+ {path:"forgot-pin",component:ForgotPinComponent}
 ];
 
 @NgModule({
