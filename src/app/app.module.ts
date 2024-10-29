@@ -16,6 +16,7 @@ import { UpdatepopupComponent } from './updatepopup/updatepopup.component';
 import { CustomerComponent } from './customer/customer.component';
 import { RegComponent } from './practice/mycomponents/reg/reg.component';
 import { MatFormFieldModule } from "@angular/material/form-field";
+import {MatStepperModule} from '@angular/material/stepper';
 import { PracticeComponent } from './practice/practice/practice.component';
 import { GetComponent } from './practice/mycomponents/get/get.component';
 import { InterceptorComponent } from './practice/mycomponents/interceptor/interceptor.component';
@@ -29,6 +30,7 @@ import { LinksLocalstorageComponent } from './practice/mycomponents/links-locals
 import { OtpComponent } from './practice/mycomponents/otp/otp.component';
 import { ForgotPinComponent } from './practice/mycomponents/forgot-pin/forgot-pin.component';
 import { MyOtpComponent } from './practice/mycomponents/my-otp/my-otp.component';
+import { StepperComponent } from './practice/mycomponents/stepper/stepper.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +52,8 @@ import { MyOtpComponent } from './practice/mycomponents/my-otp/my-otp.component'
     LinksLocalstorageComponent,
     OtpComponent,
     ForgotPinComponent,
-    MyOtpComponent
+    MyOtpComponent,
+    StepperComponent
   ],
   imports: [
     BrowserModule,
@@ -59,6 +62,7 @@ import { MyOtpComponent } from './practice/mycomponents/my-otp/my-otp.component'
     ReactiveFormsModule,
     MaterialModule,
     MatFormFieldModule,
+    MatStepperModule,
     HttpClientModule,
     MatTabsModule,
     ToastrModule.forRoot()
