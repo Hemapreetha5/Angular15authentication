@@ -1,4 +1,4 @@
-<p>stepper works!</p>
+<!-- <p>stepper works!</p>
 <mat-stepper [linear]="isLinear" #stepper>
     <mat-step [stepControl]="firstFormGroup">
       <form [formGroup]="firstFormGroup">
@@ -33,7 +33,55 @@
         <button mat-button (click)="stepper.reset()">Reset</button>
       </div>
     </mat-step>
+  </mat-stepper> -->
+
+
+
+  <mat-stepper [linear]="isLinear" #stepper>
+    <!-- Step 1 -->
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Step 1</ng-template>
+        <mat-form-field appearance="fill">
+          <mat-label>First input</mat-label>
+          <input matInput formControlName="firstCtrl" placeholder="Enter something" required>
+          <mat-error *ngIf="firstFormGroup.get('firstCtrl')?.hasError('required')">
+            This field is required
+          </mat-error>
+        </mat-form-field>
+        <div>
+          <button mat-raised-button matStepperNext [disabled]="firstFormGroup.invalid">Next</button>
+        </div>
+      </form>
+    </mat-step>
+  
+    <!-- Step 2 -->
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Step 2</ng-template>
+        <mat-form-field appearance="fill">
+          <mat-label>Second input</mat-label>
+          <input matInput formControlName="secondCtrl" placeholder="Enter something" required>
+          <mat-error *ngIf="secondFormGroup.get('secondCtrl')?.hasError('required')">
+            This field is required
+          </mat-error>
+        </mat-form-field>
+        <div>
+          <button mat-raised-button matStepperPrevious>Back</button>
+          <button mat-raised-button matStepperNext [disabled]="secondFormGroup.invalid">Next</button>
+        </div>
+      </form>
+    </mat-step>
+  
+    <!-- Completed Step with Save button -->
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      You have completed the form!
+      <div>
+        <button mat-raised-button matStepperPrevious>Back</button>
+        <button mat-raised-button (click)="stepper.reset()">Reset</button>
+        <button mat-raised-button (click)="saveForm()">Save</button>
+      </div>
+    </mat-step>
   </mat-stepper>
-
-
   
