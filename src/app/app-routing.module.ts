@@ -14,6 +14,7 @@ import { LinksLocalstorageComponent } from './practice/mycomponents/links-locals
 import { OtpComponent } from './practice/mycomponents/otp/otp.component';
 import { ForgotPinComponent } from './practice/mycomponents/forgot-pin/forgot-pin.component';
 import { StepperComponent } from './practice/mycomponents/stepper/stepper.component';
+import { ConfirmDetailComponent } from './practice/mycomponents/confirm-detail/confirm-detail.component';
 
 const routes: Routes = [
  {component:LoginComponent,path:'login'},
@@ -28,7 +29,10 @@ const routes: Routes = [
  {path:"link-localstorage",component:LinksLocalstorageComponent},
  {path:"otp",component:OtpComponent},
  {path:"forgot-pin",component:ForgotPinComponent},
- {path:"stepper",component:StepperComponent}
+ {path:"stepper",component:StepperComponent},
+ {path:"confirm-detail",
+  component:ConfirmDetailComponent
+ }
 ];
 
 @NgModule({

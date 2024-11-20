@@ -31,6 +31,7 @@ import { OtpComponent } from './practice/mycomponents/otp/otp.component';
 import { ForgotPinComponent } from './practice/mycomponents/forgot-pin/forgot-pin.component';
 import { MyOtpComponent } from './practice/mycomponents/my-otp/my-otp.component';
 import { StepperComponent } from './practice/mycomponents/stepper/stepper.component';
+import { ConfirmDetailComponent } from './practice/mycomponents/confirm-detail/confirm-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +54,8 @@ import { StepperComponent } from './practice/mycomponents/stepper/stepper.compon
     OtpComponent,
     ForgotPinComponent,
     MyOtpComponent,
-    StepperComponent
+    StepperComponent,
+    ConfirmDetailComponent
   ],
   imports: [
     BrowserModule,

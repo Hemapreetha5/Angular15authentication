@@ -33,3 +33,18 @@ a.text-primary{
     height: 50px;
     background: red;
 }
+.mb-20{
+    margin-bottom:20px;
+}
+.primary-button,.secondary-button{
+    font-size:16px;
+    padding:5px 15px;
+}
+.primary-button{
+    background-color: #00e1ff !important;
+    color:#000;
+}
+.secondary-button{
+    background-color: #ddd !important;
+    color:#000;
+}
